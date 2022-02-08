@@ -1,6 +1,9 @@
 import './App.css';
+
 import { Routes, Route, Link } from "react-router-dom";
+
 import Home from './components/Home';
+import Shop from './components/Shop';
 
 function App() {
   return (
@@ -13,7 +16,7 @@ function App() {
       <div className="content">
         <Routes>  
           <Route path="/" element={<Home/>} />
-          <Route path="shop" element={<>Sklep</>} />
+          <Route path="shop" element={<Shop/>} />
         </Routes>
       </div>
     </>    
