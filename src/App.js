@@ -16,13 +16,13 @@ function App() {
   } = useFetch(
     useCallback(async () => {
       const response = await fetch(
-        "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
+        "https://warhamme-56954-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
       );
       return response.json();
     }, []),
     []
   );
-
+  console.log(fetchDataCategories, loadingCategory, errorCategory);
   return (
     <>
       <nav className="navbar">
@@ -40,8 +40,12 @@ function App() {
             element={
               <>
                 {loadingCategory && <div>Loading...</div>}
-                {errorCategory && <div>{errorCategory}</div>}
-                {fetchDataCategories && (
+                {(errorCategory ||
+                  (fetchDataCategories &&
+                    fetchDataCategories.error != null)) && (
+                  <div>{errorCategory}</div>
+                )}
+                {fetchDataCategories && fetchDataCategories.error == null && (
                   <Shop
                     data={fetchDataCategories}
                     LoadingCategory={loadingCategory && loadingCategory}
