@@ -1,30 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+const useFetch = (fetchFunc) => {
+  const [state, setState] = useState({
+    isLoading: true,
+    data: null,
+    error: null,
+  });
 
-const useFetch = (url) => {
+  useEffect(() => {
+    fetchFunc()
+      .then((data) => setState({ isLoading: false, data, error: null }))
+      .catch((error) => setState({ isLoading: false, data: null, error }));
+  }, [fetchFunc]);
 
-    const [dataOfFatch, setDataOfFatch] = useState(null)
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const { isLoading, data, error } = state;
 
-    useEffect(() => {
-            fetch(url)
-            .then(res => {
-                if(!res.ok){
-                    throw Error('Dane nie zostały pobrane z serwera');
-                }
-                return res.json();
-            }).then(data => {
-                setDataOfFatch(data);
-                setIsLoading(false);
-                setError(null); 
-            }).catch(err => {
-                setIsLoading(false);
-                setError(err.message);
-            })
-    }, [url]) ;
-    
-    return { dataOfFatch, isLoading, error}
-}
-
+  return { isLoading, data, error };
+};
 
 export default useFetch;
