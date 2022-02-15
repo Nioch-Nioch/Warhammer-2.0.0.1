@@ -6,7 +6,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 
-import useFetch from "./hooks/useFetch";
+import useFetch from "./hooks-and-function/useFetch";
 
 function App() {
   const {
@@ -16,13 +16,13 @@ function App() {
   } = useFetch(
     useCallback(async () => {
       const response = await fetch(
-        "https://warhamme-56954-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
+        "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
       );
       return response.json();
     }, []),
     []
   );
-  console.log(fetchDataCategories, loadingCategory, errorCategory);
+
   return (
     <>
       <nav className="navbar">

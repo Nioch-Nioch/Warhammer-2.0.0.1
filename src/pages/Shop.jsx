@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import ShopCategory from "../components/Shop/Shop-Category";
 import ShopItem from "../components/Shop/Shop-Item";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../hooks-and-function/useFetch";
 
 function Shop({ data, LoadingCategory, errorCategory }) {
   const selectedItems = useSelector((state) => state.category.itemsData);

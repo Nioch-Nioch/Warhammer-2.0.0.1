@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import selectedCategory from "./categorySlice";
-import selectedItem from "./itemSlice";
+import selectedCategory from "../features/shop/categorySlice";
+import selectedItem from "../features/shop/itemSlice";
 
 const store = configureStore({
   reducer: {

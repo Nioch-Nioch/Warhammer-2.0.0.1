@@ -7,7 +7,7 @@ const itemSlice = createSlice({
   initialState: initialItemState,
   reducers: {
     showSelectedItemInfo(state, action) {
-      console.log("itemSlice");
+      console.log(action.payload);
       state.showItemInfo = action.payload.showItemInfo;
     },
   },

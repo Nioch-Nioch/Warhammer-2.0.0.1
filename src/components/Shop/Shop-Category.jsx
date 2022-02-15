@@ -1,4 +1,4 @@
-import { categorySliceActions } from "../../redux/categorySlice";
+import { categorySliceActions } from "../../features/shop/categorySlice";
 import { useDispatch } from "react-redux";
 
 function ShopCategory(props) {

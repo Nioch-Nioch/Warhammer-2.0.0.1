@@ -1,12 +1,11 @@
 # HOW START
 
-    - "npm run start:db" to start server
     - "npm start" to start project
 
 ## Frameworks
 
-    - react-redux -> documentation you can get here: https://react-redux.js.org/
-    - json-server -> documentation you can get here: https://www.npmjs.com/package/json-server
+    - react-redux -> documentation you can get here: https://redux.js.org/
+    - redux-toolkit -> documentation you can get here: https://redux-toolkit.js.org/
     - react-router -> documentation you can get here: https://reactrouter.com/
 
 ### `npm start`
