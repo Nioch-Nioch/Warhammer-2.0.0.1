@@ -5,6 +5,8 @@ import ShopCategory from "../components/Shop/Shop-Category";
 import ShopItem from "../components/Shop/Shop-Item";
 import useFetch from "../hooks-and-function/useFetch";
 
+import { StyledShop } from "../styles/layout/Shop.styled";
+
 function Shop({ data, LoadingCategory, errorCategory }) {
   const selectedItems = useSelector((state) => state.category.itemsData);
 
@@ -23,8 +25,8 @@ function Shop({ data, LoadingCategory, errorCategory }) {
   );
 
   return (
-    <div className="shop">
-      <ul className="shop__list">
+    <StyledShop>
+      <ul className="list">
         {data.map((item) => (
           <ShopCategory
             key={item.id}
@@ -33,7 +35,7 @@ function Shop({ data, LoadingCategory, errorCategory }) {
           />
         ))}
       </ul>
-      <ul className="shop__list">
+      <ul className="list">
         {loadingItems && <div>Loading...</div>}
         {errorItems && <div>{errorItems}</div>}
         {selectedItems &&
@@ -41,7 +43,7 @@ function Shop({ data, LoadingCategory, errorCategory }) {
             <ShopItem key={item.id} itemData={item} />
           ))}
       </ul>
-    </div>
+    </StyledShop>
   );
 }
 

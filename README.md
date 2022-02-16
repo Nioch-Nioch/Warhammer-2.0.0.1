@@ -7,6 +7,7 @@
     - react-redux -> documentation you can get here: https://redux.js.org/
     - redux-toolkit -> documentation you can get here: https://redux-toolkit.js.org/
     - react-router -> documentation you can get here: https://reactrouter.com/
+    - styled-components -> documentation you can get here: https://styled-components.com/docs
 
 ### `npm start`
 
