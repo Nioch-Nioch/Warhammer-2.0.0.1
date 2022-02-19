@@ -9,10 +9,6 @@ export const StyledNav = styled.nav`
   margin: 1rem auto;
   border-bottom: 1px solid ${({ theme }) => theme.colors.mainWhiteColor};
 
-  .title {
-    flex: 2;
-  }
-
   .link {
     margin-left: 1rem;
     text-decoration: none;

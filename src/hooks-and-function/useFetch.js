@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 const useFetch = (fetchFunc) => {
   const [state, setState] = useState({
     isLoading: true,

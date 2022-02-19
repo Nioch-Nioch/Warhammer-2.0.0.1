@@ -1,15 +1,18 @@
 import React, { useCallback } from "react";
+
 import { useSelector } from "react-redux";
 
+import ItemInfo from "../components/Shop/Item-info";
 import ShopCategory from "../components/Shop/Shop-Category";
 import ShopItem from "../components/Shop/Shop-Item";
 import useFetch from "../hooks-and-function/useFetch";
 
 import { StyledShop } from "../styles/layout/Shop.styled";
+import { StyledUl } from "../styles/shared/List.styled";
 
 function Shop({ data, LoadingCategory, errorCategory }) {
   const selectedItems = useSelector((state) => state.category.itemsData);
-
+  const itemInfo = useSelector((state) => state.item.showItemInfo);
   const {
     data: fetchDataItems,
     isLoading: loadingItems,
@@ -26,7 +29,7 @@ function Shop({ data, LoadingCategory, errorCategory }) {
 
   return (
     <StyledShop>
-      <ul className="list">
+      <StyledUl mrgBottom={"36px"}>
         {data.map((item) => (
           <ShopCategory
             key={item.id}
@@ -34,15 +37,17 @@ function Shop({ data, LoadingCategory, errorCategory }) {
             itemsList={fetchDataItems}
           />
         ))}
-      </ul>
-      <ul className="list">
+      </StyledUl>
+      <StyledUl>
         {loadingItems && <div>Loading...</div>}
         {errorItems && <div>{errorItems}</div>}
-        {selectedItems &&
+        {!loadingItems &&
+          selectedItems &&
           selectedItems.map((item) => (
             <ShopItem key={item.id} itemData={item} />
           ))}
-      </ul>
+      </StyledUl>
+      {itemInfo && <ItemInfo />}
     </StyledShop>
   );
 }

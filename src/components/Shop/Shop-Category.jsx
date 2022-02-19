@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 
 import { categorySliceActions } from "../../features/shop/categorySlice";
 
-import { StyledLi } from "../../styles/shared/Li.styled";
+import { StyledLi } from "../../styles/shared/List.styled";
 
 function ShopCategory(props) {
   const { categoryData, itemsList } = props;

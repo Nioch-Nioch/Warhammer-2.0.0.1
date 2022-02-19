@@ -3,14 +3,20 @@ import ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import store from "./app/store";
 
 import App from "./App";
-import store from "./app/store";
+
+import GlobalStyles from "./styles/global/GlobalStyles";
+import Themes from "./styles/global/Themes";
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <Themes>
+        <GlobalStyles />
+        <App />
+      </Themes>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
