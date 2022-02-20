@@ -29,7 +29,7 @@ function Shop({ data, LoadingCategory, errorCategory }) {
 
   return (
     <StyledShop>
-      <StyledUl mrgBottom={"36px"}>
+      <StyledUl mrgBottom={"2.25rem"}>
         {data.map((item) => (
           <ShopCategory
             key={item.id}

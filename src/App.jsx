@@ -6,6 +6,7 @@ import useFetch from "./hooks-and-function/useFetch";
 
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
+import Creator from "./pages/Creator";
 
 import { StyledNav } from "./styles/layout/Nav.styled";
 import { MainContainer } from "./styles/shared/Container.styled";
@@ -31,9 +32,8 @@ function App() {
       <StyledNav>
         <MainTitle>Warhammer</MainTitle>
         <Link to="/">Home</Link>
-        <Link className="link" to="/shop">
-          Sklep
-        </Link>
+        <Link className="link" to="/shop">Sklep</Link>
+        <Link className="link" to="/Creator">Kreator</Link>
       </StyledNav>
       <MainContainer>
         <Routes>
@@ -58,6 +58,7 @@ function App() {
               </>
             }
           />
+          <Route path="/Creator" element={<Creator />} />
         </Routes>
       </MainContainer>
     </>
