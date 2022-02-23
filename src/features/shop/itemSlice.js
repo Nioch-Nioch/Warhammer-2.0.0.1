@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialItemState = {
   showItemInfo: false,
-  selectedItem: null,
-  modalRequired: false,
+  itemInfo: null,
 };
 
 const itemSlice = createSlice({
@@ -12,7 +11,10 @@ const itemSlice = createSlice({
   reducers: {
     showSelectedItemInfo(state, action) {
       state.showItemInfo = action.payload.showItemInfo;
-      state.modalRequired = action.payload.modalRequired;
+
+      if (action.payload.itemInfo !== "unchanged") {
+        state.itemInfo = action.payload.itemInfo;
+      }
     },
   },
 });

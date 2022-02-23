@@ -1,24 +1,35 @@
-import { useDispatch } from "react-redux";
-
-import { categorySliceActions } from "../../features/shop/categorySlice";
-
-import { StyledLi } from "../../styles/shared/List.styled";
+import { StyledLi, StyledUl } from "../../styles/shared/List.styled";
 
 function ShopCategory(props) {
-  const { categoryData, itemsList } = props;
-  const dispatch = useDispatch();
+  const {
+    fetchDataCategories,
+    loadingCategory,
+    errorCategory,
+    selectCategoryHandler,
+  } = props;
 
-  const selectCategoryHandler = () => {
-    dispatch(
-      categorySliceActions.selectCategory({
-        selectedCategory: categoryData.id,
-        itemsList,
-      })
+  if (loadingCategory === true)
+    return (
+      <StyledUl>
+        <div>Loading</div>
+      </StyledUl>
     );
-  };
+
+  if (errorCategory != null)
+    return (
+      <StyledUl>
+        <div>{errorCategory}</div>
+      </StyledUl>
+    );
 
   return (
-    <StyledLi onClick={selectCategoryHandler}>{categoryData.name}</StyledLi>
+    <StyledUl>
+      {fetchDataCategories.map((item) => (
+        <StyledLi key={item.id} onClick={() => selectCategoryHandler(item.id)}>
+          {item.name}
+        </StyledLi>
+      ))}
+    </StyledUl>
   );
 }
 

@@ -1,26 +1,37 @@
-import { useDispatch } from "react-redux";
-
-import { itemSliceActions } from "../../features/shop/itemSlice";
-
-import { StyledLi } from "../../styles/shared/List.styled";
+import { StyledLi, StyledUl } from "../../styles/shared/List.styled";
 
 function ShopItem(props) {
-  const { itemData } = props;
-  const dispatch = useDispatch();
+  const { filteredItemsList, loadingItems, errorItems, showItemInfoHandler } =
+    props;
 
-  const showItemInfoHandler = () => {
-    const windowWidth = document.getElementById("root").offsetWidth < 600;
+  if (filteredItemsList == null || filteredItemsList === undefined)
+    return <StyledUl />;
 
-    dispatch(
-      itemSliceActions.showSelectedItemInfo({
-        showItemInfo: true,
-        selectedItem: itemData,
-        modalRequired: windowWidth,
-      })
+  if (loadingItems === true)
+    return (
+      <StyledUl>
+        <div>Loading</div>
+      </StyledUl>
     );
-  };
 
-  return <StyledLi onClick={showItemInfoHandler}>{itemData.name}</StyledLi>;
+  if (errorItems != null)
+    return (
+      <StyledUl>
+        <div>{errorItems}</div>
+      </StyledUl>
+    );
+
+  return (
+    <StyledUl>
+      {filteredItemsList.map((item) => {
+        return (
+          <StyledLi key={item.id} onClick={() => showItemInfoHandler(item)}>
+            {item.name}
+          </StyledLi>
+        );
+      })}
+    </StyledUl>
+  );
 }
 
 export default ShopItem;

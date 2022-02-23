@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialItemState = {
-  itemsData: null,
-  selectedCategory: null,
+  selectedCategoryId: "0",
 };
 
 const categorySlice = createSlice({
@@ -10,13 +9,7 @@ const categorySlice = createSlice({
   initialState: initialItemState,
   reducers: {
     selectCategory(state, action) {
-      state.selectedCategory = action.payload.selectedCategory;
-
-      state.itemsData = state.selectedCategory
-        ? action.payload.itemsList.filter(
-            (item) => item.categoryId === state.selectedCategory
-          )
-        : null;
+      state.selectedCategoryId = action.payload.selectedCategoryId;
     },
   },
 });

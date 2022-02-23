@@ -4,17 +4,24 @@ export const StyledBackground = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.75);
+
+  @media (min-width: 600px) {
+    display: none;
+  }
 `;
 
 export const StyledModal = styled.div`
+  min-width: 80%;
   position: absolute;
-  top: 16vh;
+  top: 18vh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 6;
-  background-color: #fff;
+  @media (min-width: 600px) {
+    display: none;
+  }
 `;

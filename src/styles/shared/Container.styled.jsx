@@ -1,16 +1,79 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
-  margin: 1rem auto;
-  padding: 1.25rem;
-  min-width: 90%;
-  max-width: 0;
-  @media (min-width: 400px) {
-    min-width: 80%;
-    max-width: 0;
+export const StyledContainerItemDetails = styled.div`
+  height: 50vh;
+  max-height: 50vh;
+  background-color: rgb(146, 143, 143);
+  left: -40%;
+  z-index: 1;
+  flex-basis: 30%;
+  opacity: 0;
+  position: relative;
+  overflow-y: scroll;
+  padding: 0.3125rem 0.625rem 0;
+  border: 0.125rem solid ${({ theme }) => theme.colors.darkRed};
+  border-radius: 0.5rem;
+  margin-bottom: 2.5rem;
+
+  animation: ${({ state }) =>
+      state !== undefined
+        ? state === "entering" || state === "entered"
+          ? "showInfo"
+          : "hideInfo"
+        : ""}
+    2.2s both;
+
+  @keyframes showInfo {
+    0% {
+      left: -40%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      left: 0;
+    }
   }
-  @media (min-width: 600px) {
-    max-width: 60rem;
+
+  @keyframes hideInfo {
+    0% {
+      left: 0;
+      opacity: 1;
+    }
+    20% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      left: -40%;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.625rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0.625rem;
+    background-color: #737272;
+  }
+
+  @media (max-width: 600px) {
+    display: ${({ modalDetails }) => (modalDetails ? "block" : "none")};
   }
 `;
-export const StyledContainer = styled.div``;
+
+export const StyledContainerShop = styled.div`
+  padding: 2rem 0.7rem;
+`;
+export const StyledContainer = styled.div`
+  margin-bottom: 1rem;
+`;
