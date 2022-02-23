@@ -15,12 +15,12 @@ export default function ItemInfo(props) {
 
   const DetailsElements = (
     <>
-      <StyledTitle2 color="greyTextColor">{itemInfo.name}</StyledTitle2>
+      <StyledTitle2 color="#333">{itemInfo.name}</StyledTitle2>
       <StyledParagraph>{itemInfo.price} zł</StyledParagraph>
       <StyledContainerShop>
         {filteredDetails.map((item) => (
           <StyledContainer key={item.id}>
-            <StyledTitle3 color="darkRed">{item.name}</StyledTitle3>
+            <StyledTitle3 color="#751d1d">{item.name}</StyledTitle3>
             <StyledParagraph>{item.info}</StyledParagraph>
           </StyledContainer>
         ))}

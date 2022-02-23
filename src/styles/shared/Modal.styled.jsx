@@ -15,7 +15,7 @@ export const StyledBackground = styled.div`
 `;
 
 export const StyledModal = styled.div`
-  min-width: 80%;
+  min-width: 88%;
   position: absolute;
   top: 18vh;
   left: 50%;

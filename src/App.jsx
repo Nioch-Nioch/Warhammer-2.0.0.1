@@ -9,7 +9,7 @@ import { MainTitle } from "./styles/shared/Title.styled";
 import { useDispatch } from "react-redux";
 import { itemSliceActions } from "./features/shop/itemSlice";
 import { categorySliceActions } from "./features/shop/categorySlice";
-
+import { StyledApp } from "./styles/layout/App.styled";
 import Shop from "./pages/Shop";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
   };
 
   return (
-    <>
+    <StyledApp>
       <StyledNav>
         <MainTitle>Warhammer</MainTitle>
         <Link to="/" onClick={storeItemDetailsHideHandler}>
@@ -47,7 +47,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
         </Routes>
       </MainShopContainer>
-    </>
+    </StyledApp>
   );
 }
 

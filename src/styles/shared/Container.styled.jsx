@@ -67,12 +67,17 @@ export const StyledContainerItemDetails = styled.div`
   }
 
   @media (max-width: 600px) {
+    height: auto;
+    max-height: 100%;
     display: ${({ modalDetails }) => (modalDetails ? "block" : "none")};
+  }
+  @media (max-width: 800px) {
+    flex-basis: 60%;
   }
 `;
 
 export const StyledContainerShop = styled.div`
-  padding: 2rem 0.7rem;
+  padding-top: 2rem;
 `;
 export const StyledContainer = styled.div`
   margin-bottom: 1rem;
