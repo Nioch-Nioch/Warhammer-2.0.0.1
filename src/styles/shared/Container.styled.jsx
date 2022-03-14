@@ -13,4 +13,5 @@ export const MainContainer = styled.div`
     max-width: 60rem;
   }
 `;
+
 export const StyledContainer = styled.div``;
