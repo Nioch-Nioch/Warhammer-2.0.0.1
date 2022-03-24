@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledContainerItemDetails = styled.div`
-  height: 50vh;
+  min-height: 50vh;
   max-height: 50vh;
   background-color: rgb(146, 143, 143);
   left: -40%;
@@ -14,7 +14,7 @@ export const StyledContainerItemDetails = styled.div`
   border: 0.125rem solid ${({ theme }) => theme.colors.darkRed};
   border-radius: 0.5rem;
   margin-bottom: 2.5rem;
-
+  transition: all.4s;
   animation: ${({ state }) =>
       state !== undefined
         ? state === "entering" || state === "entered"
@@ -67,7 +67,6 @@ export const StyledContainerItemDetails = styled.div`
   }
 
   @media (max-width: 600px) {
-    height: auto;
     max-height: 100%;
     display: ${({ modalDetails }) => (modalDetails ? "block" : "none")};
   }

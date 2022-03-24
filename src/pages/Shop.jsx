@@ -8,17 +8,26 @@ import useFetch from "../hooks-and-function/useFetch";
 
 import { StyledShop } from "../styles/layout/Shop.styled";
 
-function Shop() {
+const Shop = () => {
   const {
     data: fetchDataCategories,
     isLoading: loadingCategory,
     error: errorCategory,
   } = useFetch(
     useCallback(async () => {
-      const response = await fetch(
-        "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
-      );
-      return response.json();
+      try {
+        const response = await fetch(
+          "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
+        );
+
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          return { errorMessage: response.statusText };
+        }
+      } catch (err) {
+        throw new Error(`Error found: ${err}`);
+      }
     }, []),
     []
   );
@@ -29,10 +38,19 @@ function Shop() {
     error: errorItems,
   } = useFetch(
     useCallback(async () => {
-      const response = await fetch(
-        "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/items.json"
-      );
-      return response.json();
+      try {
+        const response = await fetch(
+          "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/items.json"
+        );
+
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          return { errorMessage: response.statusText };
+        }
+      } catch (err) {
+        throw new Error(`Error found: ${err}`);
+      }
     }, []),
     []
   );
@@ -43,14 +61,22 @@ function Shop() {
     error: errorItemDetails,
   } = useFetch(
     useCallback(async () => {
-      const response = await fetch(
-        "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/propertiesOfItems.json"
-      );
-      return response.json();
+      try {
+        const response = await fetch(
+          "https://warhammer-56954-default-rtdb.europe-west1.firebasedatabase.app/propertiesOfItems.json"
+        );
+
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          return { errorMessage: response.statusText };
+        }
+      } catch (err) {
+        throw new Error(`Error found: ${err}`);
+      }
     }, []),
     []
   );
-
   return (
     <StyledShop>
       <ShopCategoryFunctionality
@@ -70,6 +96,6 @@ function Shop() {
       />
     </StyledShop>
   );
-}
+};
 
 export default Shop;

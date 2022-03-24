@@ -6,17 +6,17 @@ import {
   StyledModal,
 } from "../../styles/shared/Modal.styled";
 
-function Backdrop(props) {
+const Backdrop = (props) => {
   return <StyledBackground onClick={props.closeModal}></StyledBackground>;
-}
+};
 
-function ModalOverlay(props) {
+const ModalOverlay = (props) => {
   return <StyledModal>{props.children}</StyledModal>;
-}
+};
 
 const portalElement = document.getElementById("overlays");
 
-export default function Modal(props) {
+const Modal = (props) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(
@@ -29,4 +29,6 @@ export default function Modal(props) {
       )}
     </Fragment>
   );
-}
+};
+
+export default Modal;

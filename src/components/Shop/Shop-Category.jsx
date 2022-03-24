@@ -1,6 +1,6 @@
 import { StyledLi, StyledUl } from "../../styles/shared/List.styled";
 
-function ShopCategory(props) {
+const ShopCategory = (props) => {
   const {
     fetchDataCategories,
     loadingCategory,
@@ -15,10 +15,11 @@ function ShopCategory(props) {
       </StyledUl>
     );
 
-  if (errorCategory != null)
+  if (errorCategory != null || fetchDataCategories.errorMessage != null)
     return (
       <StyledUl>
-        <div>{errorCategory}</div>
+        <h3>{errorCategory}</h3>
+        <h3>{fetchDataCategories.errorMessage}</h3>
       </StyledUl>
     );
 
@@ -31,6 +32,6 @@ function ShopCategory(props) {
       ))}
     </StyledUl>
   );
-}
+};
 
 export default ShopCategory;

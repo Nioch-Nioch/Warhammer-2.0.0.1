@@ -1,6 +1,6 @@
 import { StyledLi, StyledUl } from "../../styles/shared/List.styled";
 
-function ShopItem(props) {
+const ShopItem = (props) => {
   const { filteredItemsList, loadingItems, errorItems, showItemInfoHandler } =
     props;
 
@@ -14,10 +14,11 @@ function ShopItem(props) {
       </StyledUl>
     );
 
-  if (errorItems != null)
+  if (errorItems != null || filteredItemsList.errorMessage !== undefined)
     return (
       <StyledUl>
-        <div>{errorItems}</div>
+        <h3>{errorItems}</h3>
+        <h3> {filteredItemsList.errorMessage}</h3>
       </StyledUl>
     );
 
@@ -32,6 +33,6 @@ function ShopItem(props) {
       })}
     </StyledUl>
   );
-}
+};
 
 export default ShopItem;

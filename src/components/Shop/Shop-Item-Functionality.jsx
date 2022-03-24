@@ -14,6 +14,7 @@ const ShopItemFunctionality = (props) => {
   const selectedCategoryId = useSelector(
     (state) => state.category.selectedCategoryId
   );
+
   const dispatch = useDispatch();
 
   const filteredItemsList = itemsFilter(selectedCategoryId, fetchDataItems);
