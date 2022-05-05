@@ -7,8 +7,8 @@ export const StyledNav = styled.nav`
   justify-content: space-between;
   max-width: 60rem;
   margin: 1rem auto;
+  flex-wrap: wrap;
   border-bottom: 1px solid ${({ theme }) => theme.colors.mainWhiteColor};
-
   .link {
     margin-left: 1rem;
     text-decoration: none;

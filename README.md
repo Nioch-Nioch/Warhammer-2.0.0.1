@@ -9,6 +9,7 @@
     - react-router -> documentation you can get here: https://reactrouter.com/
     - styled-components -> documentation you can get here: https://styled-components.com/docs
     - react-transition-group ->  documentation you can get here: https://reactcommunity.org/react-transition-group/
+    - hamburgers ->  documentation you can get here: https://jonsuh.com/hamburgers/
 
 ### `npm start`
 
